@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>2 web log analyzer js 2</title>
+    </head>
+
+    <body>
+
+        <div>
+
+            <input type="file" id="file1" name="test" onchange="fileHandler(event)">
+
+            <button type="button" onclick="loadFile()">loadFile</button>
+            <button type="button" onclick="testFile()">testFile</button>
+            <p id="info1"></p>
+
+            <p id="progress1"></p>
+            <p id="timer"></p>
+            <textarea id="preview1" style="width:100%; height:30vh; border: 1px solid #ccc; background-size: contain; background-repeat: no-repeat; background-position: center center;" name="name" rows="8" cols="80"></textarea>
+
+        </div>
+
+        <script type="text/javascript" src="core.js"></script>
+
+    </body>
+</html>
