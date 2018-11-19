@@ -4,13 +4,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './elementstyle/button.css';
 import './elementstyle/alert.css';
-//import axios from 'axios';
-//Vue.prototype.$http = axios;
 Vue.use(VueRouter);
 Vue.use(ElementUI);
-//import Cookies from 'js-cookie';
-//Vue.prototype.$Cookies = Cookies;
 
+import Root from './Root.vue';
 import App from './App.vue';
 import Welcome from './components/Welcome.vue';
 import TopIPTimes from './components/TopIPTimes.vue';
@@ -27,14 +24,6 @@ import TopReferrerUrl from './components/TopReferrerUrl.vue';
 
 import ChartDataTraffic from './components/ChartDataTraffic.vue';
 import ChartDataTimes from './components/ChartDataTimes.vue';
-
-/*
-const GLOBALCONFIG = {
-    api: '/license-storage/api/public/index.php/api/',
-};
-*/
-
-//Vue.prototype.GLOBALCONFIG = GLOBALCONFIG;
 
 const router = new VueRouter({
     routes: [{
@@ -53,9 +42,7 @@ const router = new VueRouter({
             {path: '/TopReferrerDomain', name: 'TopReferrerDomain', component: TopReferrerDomain},
             {path: '/TopReferrerUrl', name: 'TopReferrerUrl', component: TopReferrerUrl},
             {path: '/Welcome', name: 'Welcome', component: Welcome},
-            //{path: '/Empty', name: 'Empty', component: Empty},
         ],},
-        //{path: '/Login', component: Login},
     ],
 });
 
@@ -77,4 +64,7 @@ router.beforeEach((to, from, next) => {
     }
 });
 
-const app = new Vue({router}).$mount('#app');
+const root = new Vue({
+    router,
+    render: h => h(Root),
+}).$mount('#app');
