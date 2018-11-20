@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "chart.js": "^2.7.3",
-        "element-ui": "^2.2.2",
+        "element-ui": "^2.4.11",
         "vue": "^2.5.17",
         "vue-chartjs": "^3.4.0",
         "vue-router": "^3.0.1"
