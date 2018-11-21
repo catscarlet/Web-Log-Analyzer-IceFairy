@@ -24,7 +24,7 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 - chart.js
 - vue-chartjs
 
-### Serve & Build
+## Serve & Build
 
 yarn.lock, so:
 
@@ -42,6 +42,10 @@ yarn.lock, so:
 ## Why named IceFairy
 
 I don't want to name it as just 'Web Log Analyzer', and the color scheme is ice fairy so, this is it.
+
+## Contribute
+
+Pull requests are welcome. Please sent pull request to dev branch.
 
 ## License
 
