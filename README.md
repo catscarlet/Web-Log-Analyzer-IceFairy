@@ -38,3 +38,7 @@ yarn.lock, so:
 - Analyze Status can't show Analyzing. No idea why `vue.$nextTick()` refused to work.
 - Change `Number per Page` will cause page refreshing. vue-router don't support safe reload or instant reload.
 - VUE and Element UI will cause any kinds of unknown bugs. The code is working today, but tomorrow, it may be unavaliable to build with no reason.
+
+## Why named IceFairy
+
+I don't want to name it as just 'Web Log Analyzer', and the color scheme is ice fairy so, this is it.

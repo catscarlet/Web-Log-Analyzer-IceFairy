@@ -38,3 +38,8 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 - Analyze Status 没有 Analyzing，不知为何 `vue.$nextTick()` 没有效果。
 - 修改 `Number per Page` 会导致整页刷新，因为 vue-router 没有提供也不能实现当前路由重建重载。
 - VUE 以及 Element UI 的各种 BUGS 可能会导致今天还能用，过一夜之后再编译就满页疮痍。
+
+## Why named IceFairy
+
+配色
+
