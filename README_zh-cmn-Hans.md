@@ -24,7 +24,7 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 - chart.js
 - vue-chartjs
 
-### Serve & Build
+## Serve & Build
 
 因为是 yarn.lock 所以：
 
@@ -42,6 +42,10 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 ## Why named IceFairy
 
 配色
+
+## Contribute
+
+Pull requests are welcome. Please sent pull request to dev branch.
 
 ## License
 
