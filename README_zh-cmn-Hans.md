@@ -43,3 +43,6 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 
 配色
 
+## License
+
+Mozilla Public License Version 2.0

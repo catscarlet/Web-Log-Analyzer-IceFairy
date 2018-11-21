@@ -42,3 +42,7 @@ yarn.lock, so:
 ## Why named IceFairy
 
 I don't want to name it as just 'Web Log Analyzer', and the color scheme is ice fairy so, this is it.
+
+## License
+
+Mozilla Public License Version 2.0
