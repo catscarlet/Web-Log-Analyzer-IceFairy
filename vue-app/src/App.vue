@@ -29,8 +29,8 @@
                         <!--{{ analyzed_status }}-->
                     </el-row>
 
-                    <div class="npg">
-                        <span>Number per Page:</span>
+                    <div class="number-per-page">
+                        <span>Number per Page: </span>
                         <el-input-number size="mini" :min="5" :max="100" v-model="num_per_page"></el-input-number>
                         <el-button :disabled="!num_per_page_changed" type="primary" icon="el-icon-check" size="mini" @click="changeNumberPerPage"></el-button>
                     </div>
@@ -318,14 +318,11 @@ export default {
     watch: {
         analyzed_status: function(new_val, old_val) {
             if (new_val >= 3) {
-                console.log('new_val:' + new_val);
                 this.disable_menu = false;
             } else {
                 this.disable_menu = true;
             }
-
             if (new_val >= 1) {
-                console.log('new_val:' + new_val);
                 this.disable_clean_button = false;
             } else {
                 this.disable_clean_button = true;
@@ -360,7 +357,7 @@ export default {
     justify-content: space-between;
 }
 
-.npg {
+.number-per-page {
     font-size: 14px;
 }
 
