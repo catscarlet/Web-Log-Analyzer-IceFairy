@@ -33,8 +33,8 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 
 ## Known-Issues
 
-- 因为数据信息目前是保存在 locatstorage 中，当信息大于 5M 时（约30W条日志），**Chrome 会直接崩溃并不提示任何相关信息**，Firefox 则会报错 `NS_ERROR_DOM_QUOTA_REACHED: Persistent storage maximum size reached` ，可修改 Firefox 的 `about:config` 中的 `dom.storage.default_quota` 来扩大限制。
-- 没有分析进度，因为调用 setTimeout 会产生严重的浏览器 IDLE 时间，导致效率大幅下降（约30倍）。
+- 因为数据信息目前是保存在 locatstorage 中，当信息大于 5M 时（约30W条日志），**Chrome 可能直接崩溃并不提示任何相关信息**，Firefox 则会报错 `NS_ERROR_DOM_QUOTA_REACHED: Persistent storage maximum size reached` ，可修改 Firefox 的 `about:config` 中的 `dom.storage.default_quota` 来扩大限制。
+- 没有分析进度，因为调用 setTimeout 会产生严重的浏览器 IDLE 时间，导致效率大幅下降（至少60倍）。
 - Analyze Status 没有 Analyzing，不知为何 `vue.$nextTick()` 没有效果。
 - 修改 `Number per Page` 会导致整页刷新，因为 vue-router 没有提供也不能实现当前路由重建重载。
 - VUE 以及 Element UI 的各种 BUGS 可能会导致今天还能用，过一夜之后再编译就满页疮痍。
