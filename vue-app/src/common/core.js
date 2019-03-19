@@ -263,7 +263,7 @@ export const WebLogAnalyzer = (reader_result) =>  {
             yyyymm = yyyymm + '0';
         }
 
-        yyyymm = yyyymm + d.getMonth();
+        yyyymm = yyyymm + (d.getMonth() + 1);
 
         if (d.getDate() < 10) {
             yyyymm = yyyymm + '0';
