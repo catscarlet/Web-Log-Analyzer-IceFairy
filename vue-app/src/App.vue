@@ -339,7 +339,8 @@ export default {
 
 <style>
 .app1 {
-    background-color: #FAFFFF
+    background-color: #FAFFFF;
+    font-family: Consolas, Roboto, Arial, sans-serif;
 }
 
 .downside {
@@ -375,6 +376,7 @@ export default {
     background: #eee;
     max-width: calc(100vw - 233px);
     height: calc(100vh - 88px);
+    padding-top: 2px;
 }
 
 .file-inputer {
