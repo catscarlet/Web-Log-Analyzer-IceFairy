@@ -16,3 +16,11 @@ export const loadNumberPerPage = () =>  {
 
     return window.localStorage.getItem('num_per_page');
 };
+
+export const excludeByIdFilter = (item, exclude) =>  {
+    if (item.id.search(exclude) == -1) {
+        return true;
+    } else {
+        return false;
+    }
+};

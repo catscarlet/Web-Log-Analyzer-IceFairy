@@ -6,10 +6,18 @@
 
         <span class="page-span">{{ page }} / {{ number_of_pages }}</span>
 
+        <div class="">
+            <el-input placeholder="Exclude" v-model="filter_input" class="filter-input" size="small" :clearable="true" @keyup.enter.native="filterConfirmButton">
+
+            </el-input>
+            <el-button type="primary" size="small" icon="el-icon-check" @click="filterConfirmButton" :disabled="filter_confirmed"></el-button>
+        </div>
+
         <div class="page-button">
             <!--
             <el-button type="primary" size="mini" @click="test">test</el-button>
             -->
+
             <el-button-group>
                 <el-button type="primary" size="small" icon="el-icon-d-arrow-left" @click="goToFirstPage" :disabled="is_first_page">First</el-button>
                 <el-button type="primary" size="small" icon="el-icon-arrow-left" @click="goToPrevPage" :disabled="is_first_page">Prev</el-button>
@@ -22,13 +30,14 @@
 
     <el-table :data="list" style="width: 100%">
         <el-table-column type="index" label="id">
-
         </el-table-column>
+
         <el-table-column label="IP">
             <template slot-scope="scope">
                 {{ scope.row.id }}
             </template>
         </el-table-column>
+
         <el-table-column label="Bytes">
             <template slot-scope="scope">
                 {{ scope.row.value }}
@@ -43,6 +52,7 @@
 <script>
 import {toThousands} from '../common/';
 import {loadNumberPerPage} from '../common/';
+import {excludeByIdFilter} from '../common/';
 
 export default {
     props: [
@@ -57,12 +67,16 @@ export default {
             number_of_pages: 1,
             is_first_page: true,
             is_last_page: true,
+            filter_input: '',
+            filter_input_confirmed: '',
+            filter_confirmed: true,
         };
     },
     methods: {
         initPage() {
             this.num_per_page = loadNumberPerPage();
             this.items = this.analyzed_data.top_withparam_page_traffic_array,
+
             this.getNumberOfPages();
             this.showList();
         },
@@ -111,6 +125,29 @@ export default {
                 this.is_last_page = false;
             }
         },
+        filterConfirmButton() {
+            let result;
+            if (this.filter_input != '') {
+                result = this.analyzed_data.top_withparam_page_traffic_array.filter(this.excludeFilter);
+            } else {
+                result = this.analyzed_data.top_withparam_page_traffic_array;
+            }
+
+            this.items = result;
+
+            this.filter_input_confirmed = this.filter_input;
+            this.filter_confirmed = true;
+
+            if (this.page == 1) {
+                this.showList();
+            } else {
+                this.page = 1;
+            }
+        },
+        excludeFilter(item) {
+            let exclude = this.filter_input;
+            return excludeByIdFilter(item, exclude);
+        },
         test() {
             console.log(this.items);
             console.log(this.list);
@@ -129,6 +166,13 @@ export default {
         page: function(val, oldVal) {
             this.showList();
         },
+        filter_input: function(val, oldVal) {
+            if (val != this.filter_input_confirmed) {
+                this.filter_confirmed = false;
+            } else {
+                this.filter_confirmed = true;
+            };
+        },
     },
 };
 </script>
@@ -137,6 +181,7 @@ export default {
 .panel-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2px;
 }
 
 .panel-title {
@@ -152,5 +197,9 @@ export default {
 .page-span {
     align-content: center;
     display: flex;
+}
+
+.filter-input {
+    max-width: 200px;
 }
 </style>
