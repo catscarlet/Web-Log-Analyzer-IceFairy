@@ -6,7 +6,7 @@
 
         <span class="page-span">{{ page }} / {{ number_of_pages }}</span>
 
-        <div class="">
+        <div class="filter">
             <el-input placeholder="Exclude" v-model="filter_input" class="filter-input" size="small" :clearable="true" @keyup.enter.native="filterConfirmButton">
 
             </el-input>
