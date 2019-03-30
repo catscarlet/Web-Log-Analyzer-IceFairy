@@ -196,21 +196,6 @@ export default {
             let file = e.target.files[0];
             let reader = new FileReader();
 
-            /*
-            reader.onload = e => {
-                this.$emit('load', e.target.result);
-
-                let file = e.target.files[0];
-                let reader = this.reader;
-                let filecontent = reader.result.split('\n');
-                let fileinfo = '文件: ' + file.name + '<br>' +
-                                '大小: ' + file.size + '<br>' +
-                                '修改: ' + file.lastModifiedDate + '<br>' +
-                                '行数: ' + filecontent.length;
-                console.log(fileinfo);
-            };
-            */
-
             reader.onload = e => {
                 //console.log(this);
                 //this.$emit('load', e.target.result);

@@ -73,11 +73,6 @@ export const WebLogAnalyzer = (reader_result) =>  {
         chart_data_time[index] = 0;
     }
 
-    console.log(first_day);
-    console.log(last_day);
-    console.log(chart_data_traffic);
-    console.log(chart_data_time);
-
     let status_times = {};
     let status_traffic = {};
 
@@ -133,8 +128,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
         'top_withparam_page_traffic_array': top_withparam_page_traffic_array,
     };
 
+    console.log('analyzed_data:');
     console.log(analyzed_data);
-
     console.log('Finish');
 
     return analyzed_data;
