@@ -182,6 +182,10 @@ export default {
     display: flex;
 }
 
+.filter {
+    display: inline-flex;
+}
+
 .filter-input {
     max-width: 200px;
 }
