@@ -2,7 +2,7 @@
 <div>
 
     <div class="panel-header">
-        <span>DataTable Title</span>
+        <span>{{ data_name }}</span>
 
         <span class="page-span">{{ page }} / {{ number_of_pages }}</span>
 
@@ -32,13 +32,13 @@
         <el-table-column type="index" label="id">
         </el-table-column>
 
-        <el-table-column label="IP">
+        <el-table-column :label="id_name">
             <template slot-scope="scope">
                 {{ scope.row.id }}
             </template>
         </el-table-column>
 
-        <el-table-column label="Times">
+        <el-table-column :label="unit_name">
             <template slot-scope="scope">
                 {{ scope.row.value }}
             </template>
@@ -50,11 +50,12 @@
 </template>
 
 <script>
+import {toThousands} from '../common/';
 import {loadNumberPerPage} from '../common/';
 import {excludeByIdFilter} from '../common/';
 
 export default {
-    props: ['import_data'],
+    props: ['import_data', 'array_description'],
     data() {
         return {
             data_ready_to_go: null,
@@ -70,11 +71,23 @@ export default {
             filter_input: '',
             filter_input_confirmed: '',
             filter_confirmed: true,
+
+            unit_name: 'Value',
         };
     },
     methods: {
         onMount() {
+            console.log('DataTable on Mount');
             this.data_ready_to_go = this.import_data;
+            console.log('this.import_data');
+            console.log(this.import_data);
+            console.log('this.array_description');
+            console.log(this.array_description);
+
+            this.data_name = this.array_description.data_name;
+            this.id_name = this.array_description.id_name;
+            this.unit_name = this.array_description.unit_name;
+
             this.initData();
         },
         initData() {
@@ -105,7 +118,22 @@ export default {
         showList() {
             let begin = (this.page  - 1) * this.num_per_page;
             let end = this.page * this.num_per_page;
-            this.list = this.items.slice(begin, end);
+
+            if (this.unit_name == 'Bytes') {
+                let ranged = this.items.slice(begin, end);
+           let list = [];
+           for (let item of ranged) {
+               list.push({
+                   id: item.id,
+                   value: toThousands(item.value),
+               });
+           }
+           this.list = list;
+            } else {
+                this.list = this.items.slice(begin, end);
+            }
+
+
             this.changeButtonStatus();
         },
         changeButtonStatus() {
