@@ -84,9 +84,6 @@ export default {
 
     },
     watch: {
-        page: function(val, oldVal) {
-            this.showChart();
-        },
     },
 };
 </script>
