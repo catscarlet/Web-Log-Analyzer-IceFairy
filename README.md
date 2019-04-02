@@ -33,10 +33,11 @@ yarn.lock, so:
 
 ## Known-Issues
 
-- The analyed data is saved in locatstorage. When the size of data is over than 5M (about 300,000 lines), **Chrome may crash straightly without any information**. Firefox will stop the script and throw `Persistent storage maximum size reached` , It can be avoid by setting `about:config` - `dom.storage.default_quota` to expand the limit.
+- The analyed data is saved in locatstorage. When the size of data is over than 5M (about 300,000 lines), **Chrome may crash straightly without any information**. Firefox will stop the script and throw `Persistent storage maximum size reached` , It can be avoid by setting `about:config` - `dom.storage.default_quota` on Firefox to expand the limit.
 - No progress info when analyzing. Using setTimeout will cause terrible IDLE time, that would waste about at least 60 times of time.
 - Analyze Status can't show Analyzing. No idea why `vue.$nextTick()` refused to work.
 - Change `Number per Page` will cause page refreshing. vue-router don't support safe reload or instant reload.
+- If already in route `/ChartDataTraffic` and try to analyze a new file, the page would refresh. Same reason as above.
 - VUE and Element UI will cause any kinds of unknown bugs. The code is working today, but tomorrow, it may be unavaliable to build with no reason.
 
 ## Why named IceFairy
