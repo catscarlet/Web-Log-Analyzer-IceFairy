@@ -8,6 +8,12 @@
 
 目前功能仍在开发中。很多功能都没有实现。
 
+# 截图
+
+![Web-Log-Analyzer-IceFairy snap-chart](snap-chart.png "Web-Log-Analyzer-IceFairy snap-chart")
+
+![Web-Log-Analyzer-IceFairy snap-table](snap-table.png "Web-Log-Analyzer-IceFairy snap-table")
+
 ## Demo
 
 [Demo on Cloudflare](https://server2.catscarlet.com/demo/Web-Log-Analyzer-IceFairy/)

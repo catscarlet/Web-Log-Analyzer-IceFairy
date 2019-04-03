@@ -8,6 +8,12 @@ This tool is dedicated to analyze apache.log in local browser. It won't send log
 
 This project is still WIP.
 
+## Screenshot
+
+![Web-Log-Analyzer-IceFairy snap-chart](snap-chart.png "Web-Log-Analyzer-IceFairy snap-chart")
+
+![Web-Log-Analyzer-IceFairy snap-table](snap-table.png "Web-Log-Analyzer-IceFairy snap-table")
+
 ## Demo
 
 [Demo on Cloudflare](https://server2.catscarlet.com/demo/Web-Log-Analyzer-IceFairy/)
