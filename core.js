@@ -12,7 +12,7 @@ function fileHandler(event) {
 
     /*
     if (false) {
-        info.innerHTML = '没有选择文件';
+        info.innerHTML = 'No file selected';
         return;
     }
     */
@@ -354,7 +354,7 @@ function dateobj2YYYYMM(d) {
         yyyymm = yyyymm + '0';
     }
 
-    yyyymm = yyyymm + d.getMonth();
+    yyyymm = yyyymm + (d.getMonth() + 1);
 
     if (d.getDate() < 10) {
         yyyymm = yyyymm + '0';

@@ -58,6 +58,10 @@
                         <el-alert title="Storaged Analyzed Data Loaded" type="success" show-icon :closable="false"></el-alert>
                     </div>
 
+                    <div v-else-if="analyzed_status == -1">
+                        <el-alert title="Failed. See details in DevTools Console." type="error" show-icon :closable="false"></el-alert>
+                    </div>
+
                     <div v-else>
                         <el-alert title="Status Failure" type="error" show-icon :closable="false"></el-alert>
                     </div>
@@ -158,7 +162,7 @@ import { WebLogAnalyzer } from  './common/core.js';
 export default {
     data() {
         return {
-            analyzed_status: 0, //0: no data; 1: ready_to_analyze; 2: analyzing; 3: analyzed; 4: has_data
+            analyzed_status: 0, //0: no data; 1: ready_to_analyze; 2: analyzing; 3: analyzed; 4: has_data; -1: failed_to_analyzing
             disable_menu: true,
             disable_clean_button: true,
             //reader: new FileReader(),
@@ -195,21 +199,6 @@ export default {
         loadFile(e) {
             let file = e.target.files[0];
             let reader = new FileReader();
-
-            /*
-            reader.onload = e => {
-                this.$emit('load', e.target.result);
-
-                let file = e.target.files[0];
-                let reader = this.reader;
-                let filecontent = reader.result.split('\n');
-                let fileinfo = '文件: ' + file.name + '<br>' +
-                                '大小: ' + file.size + '<br>' +
-                                '修改: ' + file.lastModifiedDate + '<br>' +
-                                '行数: ' + filecontent.length;
-                console.log(fileinfo);
-            };
-            */
 
             reader.onload = e => {
                 //console.log(this);
@@ -272,12 +261,20 @@ export default {
             let analyzed_data_str = JSON.stringify(analyzed_data);
             console.log('going to save analyzed_data_str');
             console.log(analyzed_data_str);
-            window.localStorage.setItem('AnalyzedData', analyzed_data_str);
-            console.log('analyzed_data_str has been saved into:window.localStorage AnalyzedData');
-            this.analyzed_status = 3;
-            this.$router.push({
-                path: '/ChartDataTraffic',
-            });
+
+            if (this.saveToLocalStorage(analyzed_data_str)) {
+                console.log('analyzed_data_str has been saved into:window.localStorage AnalyzedData');
+                this.analyzed_status = 3;
+
+                if (this.$router.currentRoute.path != '/ChartDataTraffic') {
+                    this.$router.push({path: '/ChartDataTraffic'});
+                } else {
+                    this.$router.go(0);
+                }
+
+            } else {
+                this.analyzed_status = -1;
+            }
         },
         checkAnalyzedData() {
             if (!window.localStorage.getItem('AnalyzedData')) {
@@ -291,7 +288,7 @@ export default {
             console.log(analyzed_data);
         },
         cleanAnalyzedData() {
-            if (this.analyzed_status != 0) {
+            if (this.analyzed_status >= 3) {
                 window.localStorage.removeItem('AnalyzedData');
                 /*
                 this.reader_result = '';
@@ -303,16 +300,24 @@ export default {
                 window.location.reload();
             }
         },
-        saveToLocalStorage() {
-            let analyzed_data = this.returnAnalyzedData();
-            let analyzed_data_str = JSON.stringify(analyzed_data);
-            window.localStorage.setItem('AnalyzedData', analyzed_data_str);
-            //console.log('analyzed_data_str has been saved into:window.localStorage AnalyzedData');
+
+        saveToLocalStorage(analyzed_data_str) {
+            console.log('analyzed_data_str.length: ' + analyzed_data_str.length);
+            try {
+                window.localStorage.setItem('AnalyzedData', analyzed_data_str);
+            } catch (e) {
+                console.log(e);
+                return false;
+            }
+
+            return true;
         },
+        /*
         returnAnalyzedData() {
             let analyzed_data = {};
             return analyzed_data;
         },
+        */
 
     },
     watch: {
@@ -339,7 +344,8 @@ export default {
 
 <style>
 .app1 {
-    background-color: #FAFFFF
+    background-color: #FAFFFF;
+    font-family: Consolas, Roboto, Arial, sans-serif;
 }
 
 .downside {
@@ -375,6 +381,7 @@ export default {
     background: #eee;
     max-width: calc(100vw - 233px);
     height: calc(100vh - 88px);
+    padding-top: 2px;
 }
 
 .file-inputer {
