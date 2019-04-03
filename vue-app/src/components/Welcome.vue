@@ -3,7 +3,7 @@
     <div>
         <el-card>
             <div slot="header">
-                <span style="flex:1">Welcome to use Web Log Analyzer - v0.1.0</span>
+                <span style="flex:1">Welcome to use Web Log Analyzer - v0.2.0</span>
             </div>
 
             <p>To start, select a web log file, and press the <strong>Start Analyzing</strong> button.</p>
