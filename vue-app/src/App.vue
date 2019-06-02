@@ -43,7 +43,7 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 1">
-                        <el-alert title="Ready to Analyze:" type="warning" show-icon :closable="false"> {{ fileinfo.name }} </el-alert>
+                        <el-alert type="warning" show-icon :closable="false"> Ready to Analyze: {{ fileinfo.name }} </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 2">
@@ -158,6 +158,7 @@
 
 <script>
 import { WebLogAnalyzer } from  './common/core.js';
+import { GlobalGetAnalyzedData, GlobalSaveAnalyzedData } from './common/';
 
 export default {
     data() {
@@ -165,7 +166,6 @@ export default {
             analyzed_status: 0, //0: no data; 1: ready_to_analyze; 2: analyzing; 3: analyzed; 4: has_data; -1: failed_to_analyzing
             disable_menu: true,
             disable_clean_button: true,
-            //reader: new FileReader(),
             reader_result: '',
             fileinfo: {
                 name: '',
@@ -216,10 +216,6 @@ export default {
             reader.readAsText(file);
             this.analyzed_status = 1;
         },
-        testFile() {
-            //let reader = new FileReader();
-            console.log(this.reader_result);
-        },
         prepareAnalyze() {
             if (this.reader_result == '') {
                 this.$message({
@@ -258,12 +254,11 @@ export default {
                 return false;
             }
 
-            let analyzed_data_str = JSON.stringify(analyzed_data);
-            console.log('going to save analyzed_data_str');
-            console.log(analyzed_data_str);
+            console.log('going to save analyzed_data');
+            console.log(analyzed_data);
 
-            if (this.saveToLocalStorage(analyzed_data_str)) {
-                console.log('analyzed_data_str has been saved into:window.localStorage AnalyzedData');
+            if (this.saveToLocalStorage(analyzed_data) === true) {
+                console.log('analyzed_data has been saved into:window.localStorage AnalyzedDataStorage');
                 this.analyzed_status = 3;
 
                 if (this.$router.currentRoute.path != '/ChartDataTraffic') {
@@ -277,48 +272,27 @@ export default {
             }
         },
         checkAnalyzedData() {
-            if (!window.localStorage.getItem('AnalyzedData')) {
+            if (!window.localStorage.getItem('AnalyzedDataStorage')) {
                 this.analyzed_status = 0;
             }else {
                 this.analyzed_status = 4;
             };
         },
         debug1() {
-            let analyzed_data = JSON.parse(window.localStorage.getItem('AnalyzedData'));
+            let analyzed_data = JSON.parse(window.localStorage.getItem('AnalyzedDataStorage'));
             console.log(analyzed_data);
         },
         cleanAnalyzedData() {
             if (this.analyzed_status >= 3) {
-                window.localStorage.removeItem('AnalyzedData');
-                /*
-                this.reader_result = '';
-                this.analyzed_status = 0;
-                this.$router.push({
-                    path: '/',
-                });
-                */
+                window.localStorage.removeItem('AnalyzedDataStorage');
                 window.location.reload();
             }
         },
 
-        saveToLocalStorage(analyzed_data_str) {
-            console.log('analyzed_data_str.length: ' + analyzed_data_str.length);
-            try {
-                window.localStorage.setItem('AnalyzedData', analyzed_data_str);
-            } catch (e) {
-                console.log(e);
-                return false;
-            }
+        saveToLocalStorage(analyzed_data) {
 
-            return true;
+            return GlobalSaveAnalyzedData(analyzed_data);;
         },
-        /*
-        returnAnalyzedData() {
-            let analyzed_data = {};
-            return analyzed_data;
-        },
-        */
-
     },
     watch: {
         analyzed_status: function(new_val, old_val) {

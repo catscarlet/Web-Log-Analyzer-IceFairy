@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {GlobalGetAnalyzedData} from '../common/';
 import DataTable from '../subcomponents/DataTable.vue';
 
 export default {
@@ -16,7 +17,7 @@ export default {
     ],
     data() {
         return {
-            analyzed_data: JSON.parse(window.localStorage.getItem('AnalyzedData')),
+            analyzed_data: GlobalGetAnalyzedData(),
             top_withparam_page_traffic_array: [],
             array_description: {
                 data_name: 'TopUrlWithParamPageTraffic List',
