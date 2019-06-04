@@ -192,6 +192,7 @@ export default {
 .panel-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 2px;
 }
 
