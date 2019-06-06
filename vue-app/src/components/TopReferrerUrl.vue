@@ -34,6 +34,27 @@ export default {
         initPage() {
             console.log('TopReferrerUrl initPage');
             this.top_referrer_page_times_array = this.analyzed_data.top_referrer_page_times_array;
+            let tmp = [];
+            for (let item of this.analyzed_data.top_referrer_page_times_array) {
+                if (this.isValidURL(item.id)) {
+                    tmp.push({
+                        id: `${item.id} <a href="${item.id}" target="_blank"><i class="el-icon-link"></i></a>`,
+                        value: item.value,
+                    });
+                } else {
+                    tmp.push({
+                        id: item.id,
+                        value: item.value,
+                    });
+                }
+
+            }
+            this.top_referrer_page_times_array = tmp;
+        },
+        isValidURL(str) {
+            var a  = document.createElement('a');
+            a.href = str;
+            return (a.host && a.host != window.location.host);
         },
     },
     beforeMount() {
