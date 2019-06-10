@@ -17,6 +17,7 @@
                         <!--<el-button type="primary" size="mini" @click="testFile">testFile</el-button>-->
                         <!--<el-button type="primary" size="mini" @click="debug1" :disabled="true">console.log analyzed_data</el-button>-->
                         <el-button type="warning" size="mini" @click="cleanAnalyzedData" :disabled="disable_clean_button">Clean Analyzed Data</el-button>
+                        <el-button type="warning" size="mini" @click="reset">Reset</el-button>
 
                         <!--
                         <el-button size="mini" type="primary">primary</el-button>
@@ -277,6 +278,10 @@ export default {
             }else {
                 this.analyzed_status = 4;
             };
+        },
+        reset() {
+            window.localStorage.clear();
+            window.location.reload();
         },
         debug1() {
             let analyzed_data = JSON.parse(window.localStorage.getItem('AnalyzedDataStorage'));
