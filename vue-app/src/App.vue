@@ -73,7 +73,7 @@
         <el-container class="downside">
             <el-aside class="asidebar">
 
-                <el-menu class="menu-extra-style" :router="true" background-color="#12476C" text-color="#FAFFFF" active-text-color="#80dbd8">
+                <el-menu :default-active="$route.path"  class="menu-extra-style" :router="true" background-color="#12476C" text-color="#FAFFFF" active-text-color="#80dbd8">
                     <el-menu-item index="/">
                         <i class="el-icon-menu"></i>Home
                     </el-menu-item>
@@ -293,7 +293,6 @@ export default {
                 window.location.reload();
             }
         },
-
         saveToLocalStorage(analyzed_data) {
 
             return GlobalSaveAnalyzedData(analyzed_data);;
