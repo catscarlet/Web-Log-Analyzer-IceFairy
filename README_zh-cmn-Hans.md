@@ -19,10 +19,10 @@
 [Demo on Cloudflare](https://server2.catscarlet.com/demo/Web-Log-Analyzer-IceFairy/)
 
 If you need a log-file as test simple, here is a log-file from my bike404-site:
-- [Apache log simple on  MEGA](https://mega.nz/#!OsNhxQCL!Rx3enFeVI4pJY0hp3zS2JlokGWx38UizbzLTcK2eLIY)
+- [Apache log simple on MEGA](https://mega.nz/#!OsNhxQCL!Rx3enFeVI4pJY0hp3zS2JlokGWx38UizbzLTcK2eLIY)
 - [Apache log simple on BaiduNetDisk](https://pan.baidu.com/s/1CZD_dDxd4P_Fp6S0xv1uWw) \(Password: mnhq \)
 
-## 3rd-pty
+## 3rd party libraries
 
 - vue
 - vue-router
