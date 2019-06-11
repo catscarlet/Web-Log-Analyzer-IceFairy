@@ -23,6 +23,7 @@
 
 <script>
 import {toThousands} from '../common/';
+import {GlobalGetAnalyzedData} from '../common/';
 import LineChart from '../subcomponents/LineChart.vue';
 
 export default {
@@ -30,7 +31,7 @@ export default {
     ],
     data() {
         return {
-            analyzed_data: JSON.parse(window.localStorage.getItem('AnalyzedData')),
+            analyzed_data: GlobalGetAnalyzedData(),
             items: [],
             list: [],
             chart_data: {},
@@ -72,16 +73,11 @@ export default {
             console.log(chart_data);
             this.chart_data = chart_data;
         },
-        test() {
-            console.log(this.items);
-            console.log(this.chart_data);
-        },
     },
     beforeMount() {
         this.initPage();
     },
     mounted() {
-
     },
     watch: {
     },

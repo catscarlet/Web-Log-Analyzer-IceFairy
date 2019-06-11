@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {GlobalGetAnalyzedData} from '../common/';
 import DataTable from '../subcomponents/DataTable.vue';
 
 export default {
@@ -16,7 +17,7 @@ export default {
     ],
     data() {
         return {
-            analyzed_data: JSON.parse(window.localStorage.getItem('AnalyzedData')),
+            analyzed_data: GlobalGetAnalyzedData(),
             top_referrer_page_times_array: [],
             array_description: {
                 data_name: 'TopReferrerUrl List',
@@ -33,6 +34,27 @@ export default {
         initPage() {
             console.log('TopReferrerUrl initPage');
             this.top_referrer_page_times_array = this.analyzed_data.top_referrer_page_times_array;
+            let tmp = [];
+            for (let item of this.analyzed_data.top_referrer_page_times_array) {
+                if (this.isValidURL(item.id)) {
+                    tmp.push({
+                        id: `${item.id} <a href="${item.id}" target="_blank"><i class="el-icon-link"></i></a>`,
+                        value: item.value,
+                    });
+                } else {
+                    tmp.push({
+                        id: item.id,
+                        value: item.value,
+                    });
+                }
+
+            }
+            this.top_referrer_page_times_array = tmp;
+        },
+        isValidURL(str) {
+            var a  = document.createElement('a');
+            a.href = str;
+            return (a.host && a.host != window.location.host);
         },
     },
     beforeMount() {

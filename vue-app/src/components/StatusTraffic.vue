@@ -34,13 +34,14 @@
 
 <script>
 import {toThousands} from '../common/';
+import {GlobalGetAnalyzedData} from '../common/';
 
 export default {
     props: [
     ],
     data() {
         return {
-            analyzed_data: JSON.parse(window.localStorage.getItem('AnalyzedData')),
+            analyzed_data: GlobalGetAnalyzedData(),
             items: [],
             list: [],
             page: 1,

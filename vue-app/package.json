@@ -1,6 +1,6 @@
 {
     "name": "Web-Log-Analyzer-IceFairy",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "A Vue.js project",
     "author": "Catscarlet <i@catscarlet.com>",
     "private": true,
@@ -9,15 +9,15 @@
         "build": "vue-cli-service build"
     },
     "dependencies": {
-        "chart.js": "^2.7.3",
-        "element-ui": "^2.4.11",
-        "vue": "^2.5.17",
-        "vue-chartjs": "^3.4.0",
-        "vue-router": "^3.0.1"
+        "chart.js": "^2.8.0",
+        "element-ui": "^2.9.1",
+        "vue": "^2.6.10",
+        "vue-chartjs": "^3.4.2",
+        "vue-router": "^3.0.6"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.1.1",
-        "@vue/cli-service": "^3.1.1",
-        "vue-template-compiler": "^2.5.17"
+        "@vue/cli-plugin-babel": "^3.8.0",
+        "@vue/cli-service": "^3.8.0",
+        "vue-template-compiler": "^2.6.10"
     }
 }

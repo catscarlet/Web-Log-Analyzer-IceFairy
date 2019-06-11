@@ -48,7 +48,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.path != '/') {
-        if (!window.localStorage.getItem('AnalyzedData')) {
+        if (!window.localStorage.getItem('AnalyzedDataStorage')) {
             Vue.prototype.$message({
                 message: 'No Analyzed Data',
                 type: 'warning',

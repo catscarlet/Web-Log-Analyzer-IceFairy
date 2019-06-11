@@ -34,10 +34,9 @@
 
         <el-table-column :label="id_name">
             <template slot-scope="scope">
-                {{ scope.row.id }}
+                <span v-html="scope.row.id"></span>
             </template>
         </el-table-column>
-
         <el-table-column :label="unit_name">
             <template slot-scope="scope">
                 {{ scope.row.value }}
@@ -73,6 +72,9 @@ export default {
             filter_confirmed: true,
 
             unit_name: 'Value',
+
+            data_name: '',
+            id_name: '',
         };
     },
     methods: {
@@ -192,6 +194,7 @@ export default {
 .panel-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 2px;
 }
 

@@ -67,7 +67,7 @@ export const WebLogAnalyzer = (reader_result) =>  {
     let chart_data_traffic = {};
     let chart_data_time = {};
 
-    for (let d = new Date(first_day.getTime()); d <= last_day; d.setDate(d.getDate() + 1)) {
+    for (let d = new Date(first_day.getTime()); dateobj2YYYYMM(d) <= dateobj2YYYYMM(last_day); d.setDate(d.getDate() + 1)) {
         let index = dateobj2YYYYMM(d);
         chart_data_traffic[index] = 0;
         chart_data_time[index] = 0;
