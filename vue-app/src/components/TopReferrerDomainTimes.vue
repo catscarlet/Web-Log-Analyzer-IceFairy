@@ -20,7 +20,7 @@ export default {
             analyzed_data: GlobalGetAnalyzedData(),
             top_referrer_domain_times_array: [],
             array_description: {
-                data_name: 'TopReferrerDomain List',
+                data_name: 'TopReferrerDomainTimes List',
                 id_name: 'Domain',
                 unit_name: 'Times',
             },
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         initPage() {
-            console.log('TopIPTimes initPage');
+            console.log('TopReferrerDomainTimes initPage');
             this.top_referrer_domain_times_array = this.analyzed_data.top_referrer_domain_times_array;
         },
     },

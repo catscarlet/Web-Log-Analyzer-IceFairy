@@ -135,11 +135,11 @@
                     <el-submenu index="5">
                         <template slot="title"><i class="el-icon-document"></i>Referrer</template>
                         <el-menu-item-group>
-                            <el-menu-item index="/TopReferrerDomain" :disabled="disable_menu">
-                                - TopReferrerDomain
+                            <el-menu-item index="/TopReferrerDomainTimes" :disabled="disable_menu">
+                                - TopReferrerDomainTimes
                             </el-menu-item>
-                            <el-menu-item index="/TopReferrerUrl" :disabled="disable_menu">
-                                - TopReferrerUrl
+                            <el-menu-item index="/TopReferrerUrlTimes" :disabled="disable_menu">
+                                - TopReferrerUrlTimes
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>

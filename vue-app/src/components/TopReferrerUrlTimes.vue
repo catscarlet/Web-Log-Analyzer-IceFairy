@@ -20,7 +20,7 @@ export default {
             analyzed_data: GlobalGetAnalyzedData(),
             top_referrer_page_times_array: [],
             array_description: {
-                data_name: 'TopReferrerUrl List',
+                data_name: 'TopReferrerUrlTimes List',
                 id_name: 'Url',
                 unit_name: 'Times',
             },
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         initPage() {
-            console.log('TopReferrerUrl initPage');
+            console.log('TopReferrerUrlTimes initPage');
             this.top_referrer_page_times_array = this.analyzed_data.top_referrer_page_times_array;
             let tmp = [];
             for (let item of this.analyzed_data.top_referrer_page_times_array) {
