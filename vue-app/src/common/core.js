@@ -156,6 +156,7 @@ export const WebLogAnalyzer = (reader_result) =>  {
     function prepareChartData(line, obj, value) {
         let time_obj = new Date(line.time);
         let day = dateobj2YYYYMM(time_obj);
+
         if (value === undefined) {
             obj[day] = obj[day] + 1;
         } else {

@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         initPage() {
-            console.log('TopIPTimes initPage');
+            console.log('TopIPTraffic initPage');
             this.top_ip_traffic_array = this.analyzed_data.top_ip_traffic_array;
         },
     },

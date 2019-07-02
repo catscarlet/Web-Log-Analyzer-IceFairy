@@ -14,20 +14,9 @@
                         </label>
 
                         <el-button type="primary" size="mini" @click="prepareAnalyze">Start Analyzing</el-button>
-                        <!--<el-button type="primary" size="mini" @click="testFile">testFile</el-button>-->
-                        <!--<el-button type="primary" size="mini" @click="debug1" :disabled="true">console.log analyzed_data</el-button>-->
                         <el-button type="warning" size="mini" @click="cleanAnalyzedData" :disabled="disable_clean_button">Clean Analyzed Data</el-button>
                         <el-button type="warning" size="mini" @click="reset">Reset</el-button>
 
-                        <!--
-                        <el-button size="mini" type="primary">primary</el-button>
-                        <el-button size="mini" type="success">success</el-button>
-                        <el-button size="mini" type="info">info</el-button>
-                        <el-button size="mini" type="warning">warning</el-button>
-                        <el-button size="mini" type="danger">danger</el-button>
-                        -->
-
-                        <!--{{ analyzed_status }}-->
                     </el-row>
 
                     <div class="number-per-page">
@@ -275,7 +264,7 @@ export default {
         checkAnalyzedData() {
             if (!window.localStorage.getItem('AnalyzedDataStorage')) {
                 this.analyzed_status = 0;
-            }else {
+            } else {
                 this.analyzed_status = 4;
             };
         },
