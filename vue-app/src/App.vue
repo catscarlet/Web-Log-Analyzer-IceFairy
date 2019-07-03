@@ -70,11 +70,11 @@
                     <el-submenu index="1">
                         <template slot="title"><span><i class="el-icon-time"></i>Traffic</span></template>
                         <el-menu-item-group>
-                            <el-menu-item index="/ChartDataTraffic" :disabled="disable_menu">
-                                - ChartDataTraffic
-                            </el-menu-item>
                             <el-menu-item index="/ChartDataTimes" :disabled="disable_menu">
                                 - ChartDataTimes
+                            </el-menu-item>
+                            <el-menu-item index="/ChartDataTraffic" :disabled="disable_menu">
+                                - ChartDataTraffic
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
@@ -257,8 +257,8 @@ export default {
                 console.log('analyzed_data has been saved into:window.localStorage AnalyzedDataStorage');
                 this.analyzed_status = 3;
 
-                if (this.$router.currentRoute.path != '/ChartDataTraffic') {
-                    this.$router.push({path: '/ChartDataTraffic'});
+                if (this.$router.currentRoute.path != '/ChartDataTimes') {
+                    this.$router.push({path: '/ChartDataTimes'});
                 } else {
                     this.$router.go(0);
                 }
