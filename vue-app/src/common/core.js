@@ -66,6 +66,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
 
     let chart_data_traffic = {};
     let chart_data_time = {};
+    let total_data_time = 0;
+    let total_data_traffic = 0;
 
     for (let d = new Date(first_day.getTime()); dateobj2YYYYMM(d) <= dateobj2YYYYMM(last_day); d.setDate(d.getDate() + 1)) {
         let index = dateobj2YYYYMM(d);
@@ -104,6 +106,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
         chart_data_time = prepareChartData(line, chart_data_time);
         status_traffic = prepareTopData(line, status_traffic, 'status', 'byte');
         status_times = prepareTopData(line, status_times, 'status');
+        total_data_time++;
+        total_data_traffic = prepareTraffic(line, total_data_traffic);
     }
     //post
     let top_ip_times_array = obj2arr(top_ip_times_obj);
@@ -130,6 +134,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
         'top_referrer_page_traffic_array': top_referrer_page_traffic_array,
         'chart_data_traffic': chart_data_traffic,
         'chart_data_time': chart_data_time,
+        'total_data_time': total_data_time,
+        'total_data_traffic': total_data_traffic,
         'status_traffic': status_traffic,
         'status_times': status_times,
         'top_urlnoparam_page_traffic_array': top_urlnoparam_page_traffic_array,
@@ -170,6 +176,12 @@ export const WebLogAnalyzer = (reader_result) =>  {
         } else {
             obj[day] = obj[day] + line[value];
         }
+
+        return obj;
+    }
+
+    function prepareTraffic(line, obj) {
+        obj = obj + line.byte;
 
         return obj;
     }

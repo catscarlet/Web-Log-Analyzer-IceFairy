@@ -3,14 +3,11 @@
 
     <div class="panel-header">
         <span>ChartDataTraffic</span>
+        <span>Total: {{ total_data_traffic }} Byte</span>
 
         <div class="page-button">
-            <!--
-            <el-button type="primary" size="mini" @click="test">test</el-button>
-            -->
             <el-button-group>
             </el-button-group>
-
         </div>
     </div>
 
@@ -35,6 +32,7 @@ export default {
             items: [],
             list: [],
             chart_data: {},
+            total_data_traffic: 0,
         };
     },
     components: {
@@ -42,7 +40,8 @@ export default {
     },
     methods: {
         initPage() {
-            this.items = this.analyzed_data.chart_data_traffic,
+            this.items = this.analyzed_data.chart_data_traffic;
+            this.total_data_traffic = toThousands(this.analyzed_data.total_data_traffic);
 
             this.showChart();
         },
@@ -88,6 +87,8 @@ export default {
 .panel-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
 }
 
 .panel-title {
