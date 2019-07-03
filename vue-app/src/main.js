@@ -21,6 +21,8 @@ import StatusTimes from './components/StatusTimes.vue';
 import StatusTraffic from './components/StatusTraffic.vue';
 import TopReferrerDomainTimes from './components/TopReferrerDomainTimes.vue';
 import TopReferrerUrlTimes from './components/TopReferrerUrlTimes.vue';
+import TopReferrerDomainTraffice from './components/TopReferrerDomainTraffice.vue';
+import TopReferrerUrlTraffic from './components/TopReferrerUrlTraffic.vue';
 
 import ChartDataTraffic from './components/ChartDataTraffic.vue';
 import ChartDataTimes from './components/ChartDataTimes.vue';
@@ -41,6 +43,8 @@ const router = new VueRouter({
             {path: '/StatusTraffic', name: 'StatusTraffic', component: StatusTraffic},
             {path: '/TopReferrerDomainTimes', name: 'TopReferrerDomainTimes', component: TopReferrerDomainTimes},
             {path: '/TopReferrerUrlTimes', name: 'TopReferrerUrlTimes', component: TopReferrerUrlTimes},
+            {path: '/TopReferrerDomainTraffice', name: 'TopReferrerDomainTraffice', component: TopReferrerDomainTraffice},
+            {path: '/TopReferrerUrlTraffic', name: 'TopReferrerUrlTraffic', component: TopReferrerUrlTraffic},
             {path: '/Welcome', name: 'Welcome', component: Welcome},
         ],},
     ],

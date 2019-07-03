@@ -127,8 +127,14 @@
                             <el-menu-item index="/TopReferrerDomainTimes" :disabled="disable_menu">
                                 - TopReferrerDomainTimes
                             </el-menu-item>
+                            <el-menu-item index="/TopReferrerDomainTraffice" :disabled="disable_menu">
+                                - TopReferrerDomainTraffice
+                            </el-menu-item>
                             <el-menu-item index="/TopReferrerUrlTimes" :disabled="disable_menu">
                                 - TopReferrerUrlTimes
+                            </el-menu-item>
+                            <el-menu-item index="/TopReferrerUrlTraffic" :disabled="disable_menu">
+                                - TopReferrerUrlTraffic
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
