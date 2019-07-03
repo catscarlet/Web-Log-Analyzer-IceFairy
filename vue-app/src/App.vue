@@ -14,20 +14,9 @@
                         </label>
 
                         <el-button type="primary" size="mini" @click="prepareAnalyze">Start Analyzing</el-button>
-                        <!--<el-button type="primary" size="mini" @click="testFile">testFile</el-button>-->
-                        <!--<el-button type="primary" size="mini" @click="debug1" :disabled="true">console.log analyzed_data</el-button>-->
                         <el-button type="warning" size="mini" @click="cleanAnalyzedData" :disabled="disable_clean_button">Clean Analyzed Data</el-button>
                         <el-button type="warning" size="mini" @click="reset">Reset</el-button>
 
-                        <!--
-                        <el-button size="mini" type="primary">primary</el-button>
-                        <el-button size="mini" type="success">success</el-button>
-                        <el-button size="mini" type="info">info</el-button>
-                        <el-button size="mini" type="warning">warning</el-button>
-                        <el-button size="mini" type="danger">danger</el-button>
-                        -->
-
-                        <!--{{ analyzed_status }}-->
                     </el-row>
 
                     <div class="number-per-page">
@@ -81,11 +70,11 @@
                     <el-submenu index="1">
                         <template slot="title"><span><i class="el-icon-time"></i>Traffic</span></template>
                         <el-menu-item-group>
-                            <el-menu-item index="/ChartDataTraffic" :disabled="disable_menu">
-                                - ChartDataTraffic
-                            </el-menu-item>
                             <el-menu-item index="/ChartDataTimes" :disabled="disable_menu">
                                 - ChartDataTimes
+                            </el-menu-item>
+                            <el-menu-item index="/ChartDataTraffic" :disabled="disable_menu">
+                                - ChartDataTraffic
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
@@ -135,11 +124,17 @@
                     <el-submenu index="5">
                         <template slot="title"><i class="el-icon-document"></i>Referrer</template>
                         <el-menu-item-group>
-                            <el-menu-item index="/TopReferrerDomain" :disabled="disable_menu">
-                                - TopReferrerDomain
+                            <el-menu-item index="/TopReferrerDomainTimes" :disabled="disable_menu">
+                                - TopReferrerDomainTimes
                             </el-menu-item>
-                            <el-menu-item index="/TopReferrerUrl" :disabled="disable_menu">
-                                - TopReferrerUrl
+                            <el-menu-item index="/TopReferrerDomainTraffice" :disabled="disable_menu">
+                                - TopReferrerDomainTraffice
+                            </el-menu-item>
+                            <el-menu-item index="/TopReferrerUrlTimes" :disabled="disable_menu">
+                                - TopReferrerUrlTimes
+                            </el-menu-item>
+                            <el-menu-item index="/TopReferrerUrlTraffic" :disabled="disable_menu">
+                                - TopReferrerUrlTraffic
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
@@ -262,8 +257,8 @@ export default {
                 console.log('analyzed_data has been saved into:window.localStorage AnalyzedDataStorage');
                 this.analyzed_status = 3;
 
-                if (this.$router.currentRoute.path != '/ChartDataTraffic') {
-                    this.$router.push({path: '/ChartDataTraffic'});
+                if (this.$router.currentRoute.path != '/ChartDataTimes') {
+                    this.$router.push({path: '/ChartDataTimes'});
                 } else {
                     this.$router.go(0);
                 }
@@ -275,7 +270,7 @@ export default {
         checkAnalyzedData() {
             if (!window.localStorage.getItem('AnalyzedDataStorage')) {
                 this.analyzed_status = 0;
-            }else {
+            } else {
                 this.analyzed_status = 4;
             };
         },

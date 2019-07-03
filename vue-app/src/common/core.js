@@ -66,6 +66,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
 
     let chart_data_traffic = {};
     let chart_data_time = {};
+    let total_data_time = 0;
+    let total_data_traffic = 0;
 
     for (let d = new Date(first_day.getTime()); dateobj2YYYYMM(d) <= dateobj2YYYYMM(last_day); d.setDate(d.getDate() + 1)) {
         let index = dateobj2YYYYMM(d);
@@ -83,6 +85,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
     let top_withparam_page_times_obj = {};
     let top_referrer_domain_times_obj = {};
     let top_referrer_page_times_obj = {};
+    let top_referrer_domain_traffic_obj = {};
+    let top_referrer_page_traffic_obj = {};
     let top_urlnoparam_page_traffic_obj = {};
     let top_withparam_page_traffic_obj = {};
 
@@ -96,10 +100,14 @@ export const WebLogAnalyzer = (reader_result) =>  {
         top_withparam_page_traffic_obj = prepareTopData(line, top_withparam_page_traffic_obj, 'url', 'byte');
         top_referrer_domain_times_obj = prepareTopData(line, top_referrer_domain_times_obj, 'referrerdomain');
         top_referrer_page_times_obj = prepareTopData(line, top_referrer_page_times_obj, 'referrer');
+        top_referrer_domain_traffic_obj = prepareTopData(line, top_referrer_domain_traffic_obj, 'referrerdomain', 'byte');
+        top_referrer_page_traffic_obj = prepareTopData(line, top_referrer_page_traffic_obj, 'referrer', 'byte');
         chart_data_traffic = prepareChartData(line, chart_data_traffic, 'byte');
         chart_data_time = prepareChartData(line, chart_data_time);
         status_traffic = prepareTopData(line, status_traffic, 'status', 'byte');
         status_times = prepareTopData(line, status_times, 'status');
+        total_data_time++;
+        total_data_traffic = prepareTraffic(line, total_data_traffic);
     }
     //post
     let top_ip_times_array = obj2arr(top_ip_times_obj);
@@ -112,6 +120,8 @@ export const WebLogAnalyzer = (reader_result) =>  {
 
     let top_referrer_domain_times_array = obj2arr(top_referrer_domain_times_obj);
     let top_referrer_page_times_array = obj2arr(top_referrer_page_times_obj);
+    let top_referrer_domain_traffic_array = obj2arr(top_referrer_domain_traffic_obj);
+    let top_referrer_page_traffic_array = obj2arr(top_referrer_page_traffic_obj);
 
     let analyzed_data = {
         'top_ip_times_array': top_ip_times_array,
@@ -120,8 +130,12 @@ export const WebLogAnalyzer = (reader_result) =>  {
         'top_withparam_page_times_array': top_withparam_page_times_array,
         'top_referrer_domain_times_array': top_referrer_domain_times_array,
         'top_referrer_page_times_array': top_referrer_page_times_array,
+        'top_referrer_domain_traffic_array': top_referrer_domain_traffic_array,
+        'top_referrer_page_traffic_array': top_referrer_page_traffic_array,
         'chart_data_traffic': chart_data_traffic,
         'chart_data_time': chart_data_time,
+        'total_data_time': total_data_time,
+        'total_data_traffic': total_data_traffic,
         'status_traffic': status_traffic,
         'status_times': status_times,
         'top_urlnoparam_page_traffic_array': top_urlnoparam_page_traffic_array,
@@ -156,11 +170,18 @@ export const WebLogAnalyzer = (reader_result) =>  {
     function prepareChartData(line, obj, value) {
         let time_obj = new Date(line.time);
         let day = dateobj2YYYYMM(time_obj);
+
         if (value === undefined) {
             obj[day] = obj[day] + 1;
         } else {
             obj[day] = obj[day] + line[value];
         }
+
+        return obj;
+    }
+
+    function prepareTraffic(line, obj) {
+        obj = obj + line.byte;
 
         return obj;
     }

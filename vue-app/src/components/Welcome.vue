@@ -3,7 +3,7 @@
     <div>
         <el-card>
             <div slot="header">
-                <span style="flex:1">Welcome to use Web Log Analyzer - v0.3.0</span>
+                <span style="flex:1">Welcome to use Web Log Analyzer - v{{ version }}</span>
             </div>
 
             <p>To start, select a web log file, and press the <strong>Start Analyzing</strong> button.</p>
@@ -15,11 +15,15 @@
 </template>
 
 <script>
+import config from '../../package.json';
+const VERSION = config.version;
+
 export default {
     props: [
     ],
     data() {
         return {
+            version: VERSION,
         };
     },
     methods: {

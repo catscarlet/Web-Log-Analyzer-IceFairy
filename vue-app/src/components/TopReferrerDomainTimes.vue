@@ -2,7 +2,7 @@
 <div>
 
     <div class="data-table-div">
-        <data-table :import_data="top_ip_traffic_array" :array_description="array_description"></data-table>
+        <data-table :import_data="top_referrer_domain_times_array" :array_description="array_description"></data-table>
     </div>
 
 </div>
@@ -18,11 +18,11 @@ export default {
     data() {
         return {
             analyzed_data: GlobalGetAnalyzedData(),
-            top_ip_traffic_array: [],
+            top_referrer_domain_times_array: [],
             array_description: {
-                data_name: 'TopIPTraffic List',
-                id_name: 'IP',
-                unit_name: 'Bytes',
+                data_name: 'TopReferrerDomainTimes List',
+                id_name: 'Domain',
+                unit_name: 'Times',
             },
             import_data: [],
         };
@@ -32,8 +32,8 @@ export default {
     },
     methods: {
         initPage() {
-            console.log('TopIPTraffic initPage');
-            this.top_ip_traffic_array = this.analyzed_data.top_ip_traffic_array;
+            console.log('TopReferrerDomainTimes initPage');
+            this.top_referrer_domain_times_array = this.analyzed_data.top_referrer_domain_times_array;
         },
     },
     beforeMount() {

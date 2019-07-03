@@ -3,14 +3,11 @@
 
     <div class="panel-header">
         <span>ChartDataTime</span>
+        <span>Total: {{ total_data_time }}</span>
 
         <div class="page-button">
-            <!--
-            <el-button type="primary" size="mini" @click="test">test</el-button>
-            -->
             <el-button-group>
             </el-button-group>
-
         </div>
     </div>
 
@@ -34,6 +31,7 @@ export default {
             items: [],
             list: [],
             chart_data: {},
+            total_data_time: 0,
         };
     },
     components: {
@@ -42,6 +40,8 @@ export default {
     methods: {
         initPage() {
             this.items = this.analyzed_data.chart_data_time,
+            this.total_data_time = this.analyzed_data.total_data_time;
+
             this.showChart();
         },
         showChart() {
@@ -59,7 +59,6 @@ export default {
             }
             let label = 'ChartDataTimes';
             let chart_data = {
-
                 labels: labels,
                 datasets: [
                     {
@@ -72,12 +71,6 @@ export default {
             console.log(chart_data);
             this.chart_data = chart_data;
         },
-        /*
-        test() {
-            console.log(this.items);
-            console.log(this.chart_data);
-        },
-        */
     },
     beforeMount() {
         this.initPage();
@@ -93,6 +86,8 @@ export default {
 .panel-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
 }
 
 .panel-title {
@@ -112,11 +107,5 @@ export default {
 
 .chart1 {
     height: calc(100vh - 168px);
-}
-
-.chart2 {
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 </style>
