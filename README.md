@@ -44,7 +44,7 @@ yarn.lock, so:
 - Analyze Status can't show Analyzing. No idea why `vue.$nextTick()` refused to work.
 - Change `Number per Page` will cause page refreshing. vue-router don't support safe reload or instant reload.
 - If already in route `/ChartDataTraffic` and try to analyze a new file, the page would refresh. Same reason as above.
-- VUE and Element UI will cause any kinds of unknown bugs. The code is working today, but tomorrow, it may be unavaliable to build with no reason.
+- Vue and Element UI will cause any kinds of unknown bugs. The code is working today, but tomorrow, it may be unavaliable to build with no reason. The Element UI will be much maintained. I'm going to choose another UI Library.
 
 ## Why named IceFairy
 
