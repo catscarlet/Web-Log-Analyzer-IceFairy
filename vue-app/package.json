@@ -4,7 +4,7 @@
     "description": "A Client-Only web log analyzing tool.",
     "author": "Catscarlet <i@catscarlet.com>",
     "homepage": "https://github.com/catscarlet/Web-Log-Analyzer-IceFairy",
-    "license" : "MPL-2.0",
+    "license": "MPL-2.0",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build"
@@ -17,8 +17,8 @@
         "vue-router": "^3.0.6"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.8.0",
-        "@vue/cli-service": "^3.8.0",
-        "vue-template-compiler": "^2.6.10"
+        "@vue/cli-plugin-babel": "^4.2.2",
+        "@vue/cli-service": "^4.2.2",
+        "vue-template-compiler": "^2.6.11"
     }
 }
