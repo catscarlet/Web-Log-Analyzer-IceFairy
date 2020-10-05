@@ -275,7 +275,7 @@ export const WebLogAnalyzer = (reader_result) =>  {
     function dateobj2YYYYMM(d) {
         let yyyymm = d.getFullYear().toString();
 
-        if (d.getMonth() < 10) {
+        if (d.getMonth() < 9) {
             yyyymm = yyyymm + '0';
         }
 
