@@ -1,24 +1,24 @@
 {
-    "name": "Web-Log-Analyzer-IceFairy",
-    "version": "0.4.2",
-    "description": "A Client-Only web log analyzing tool.",
-    "author": "Catscarlet <i@catscarlet.com>",
-    "homepage": "https://github.com/catscarlet/Web-Log-Analyzer-IceFairy",
-    "license": "MPL-2.0",
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build"
-    },
-    "dependencies": {
-        "chart.js": "^2.9.3",
-        "element-ui": "^2.13.2",
-        "vue": "^2.6.12",
-        "vue-chartjs": "^3.5.1",
-        "vue-router": "^3.4.3"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.5.6",
-        "@vue/cli-service": "^4.5.6",
-        "vue-template-compiler": "^2.6.12"
-    }
+  "author": "Catscarlet <i@catscarlet.com>",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "element-ui": "^2.14.1",
+    "vue": "^2.6.12",
+    "vue-chartjs": "^3.5.1",
+    "vue-router": "^3.4.9"
+  },
+  "description": "A Client-Only web log analyzing tool.",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "homepage": "https://github.com/catscarlet/Web-Log-Analyzer-IceFairy",
+  "license": "MPL-2.0",
+  "name": "Web-Log-Analyzer-IceFairy",
+  "scripts": {
+    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve"
+  },
+  "version": "0.4.2"
 }
