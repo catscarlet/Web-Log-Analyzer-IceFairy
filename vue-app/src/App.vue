@@ -176,7 +176,6 @@ export default {
     },
     beforeMount() {
         this.init();
-        //this.getUserInfoTest();
     },
     methods: {
         init() {
@@ -197,15 +196,12 @@ export default {
             let reader = new FileReader();
 
             reader.onload = e => {
-                //console.log(this);
-                //this.$emit('load', e.target.result);
                 this.reader_result = reader.result;
                 let filecontent = reader.result.split('\n');
                 let fileinfo = {
                     name: file.name,
                     size: file.size,
                 };
-                console.log(fileinfo);
                 this.fileinfo = fileinfo;
             };
 
@@ -223,15 +219,6 @@ export default {
             }
 
             this.analyzed_status = 2;
-
-            /*
-            let that = this;
-            this.$nextTick().then(function() {
-                that.startAnalyze();
-            });
-            */
-
-            //setTimeout(this.startAnalyze(), 1);
 
             this.startAnalyze();
         },
@@ -277,10 +264,6 @@ export default {
         reset() {
             window.localStorage.clear();
             window.location.reload();
-        },
-        debug1() {
-            let analyzed_data = JSON.parse(window.localStorage.getItem('AnalyzedDataStorage'));
-            console.log(analyzed_data);
         },
         cleanAnalyzedData() {
             if (this.analyzed_status >= 3) {
