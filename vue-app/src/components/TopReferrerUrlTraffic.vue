@@ -39,7 +39,7 @@ export default {
             for (let item of this.analyzed_data.top_referrer_page_traffic_array) {
                 if (this.isValidURL(item.id)) {
                     tmp.push({
-                        id: `${item.id} <a href="${item.id}" target="_blank"><i class="el-icon-link"></i></a>`,
+                        id: `${item.id} <a href="${item.id}" target="_blank" rel="noopener noreferrer"><i class="el-icon-link"></i></a>`,
                         value: item.value,
                     });
                 } else {
