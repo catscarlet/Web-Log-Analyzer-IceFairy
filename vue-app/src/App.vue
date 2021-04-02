@@ -41,11 +41,11 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 3">
-                        <el-alert title="Successfully Analyzed" type="success" show-icon :closable="false"></el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Successfully Analyzed: {{ fileinfo.name } </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 4">
-                        <el-alert title="Storaged Analyzed Data Loaded" type="success" show-icon :closable="false"></el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Storaged Analyzed Data Loaded: {{ fileinfo.name }} </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == -1">
@@ -238,6 +238,9 @@ export default {
             }
 
             console.log('going to save analyzed_data');
+
+            analyzed_data.fileinfo = this.fileinfo;
+
             console.log(analyzed_data);
 
             if (this.saveToLocalStorage(analyzed_data) === true) {
@@ -259,6 +262,8 @@ export default {
                 this.analyzed_status = 0;
             } else {
                 this.analyzed_status = 4;
+                let analyzed_data = GlobalGetAnalyzedData();
+                this.fileinfo = analyzed_data.fileinfo;
             };
         },
         reset() {
