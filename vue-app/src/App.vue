@@ -33,7 +33,7 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 1">
-                        <el-alert type="warning" show-icon :closable="false"> Ready to Analyze: {{ fileinfo.name }} </el-alert>
+                        <el-alert type="warning" show-icon :closable="false"> Ready to Analyze: <strong>{{ fileinfo.name }}</strong> </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 2">
@@ -41,11 +41,11 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 3">
-                        <el-alert type="success" show-icon :closable="false"> Successfully Analyzed: {{ fileinfo.name } </el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Successfully Analyzed: <strong>{{ fileinfo.name }}</strong></el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 4">
-                        <el-alert type="success" show-icon :closable="false"> Storaged Analyzed Data Loaded: {{ fileinfo.name }} </el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Storaged Analyzed Data Loaded: <strong>{{ fileinfo.name }}</strong> </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == -1">
