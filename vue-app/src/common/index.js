@@ -42,6 +42,7 @@ export const GlobalSaveAnalyzedData = (analyzed_data) =>  {
 
 export const GlobalGetAnalyzedData = () =>  {
     let analyzed_data_storage = window.localStorage.getItem('AnalyzedDataStorage');
+    let analyzed_data = JSON.parse(analyzed_data_storage);
 
-    return JSON.parse(analyzed_data_storage);
+    return analyzed_data;
 };

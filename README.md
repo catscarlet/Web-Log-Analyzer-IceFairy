@@ -6,6 +6,16 @@ This is a Client-Only web log analyzing tool.
 
 This tool is dedicated to analyze apache.log in local browser. It won't send log to server. All works will be done in local browser.
 
+This tool reads log line by using regex and support default format of apache log `LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\""`
+
+like：
+
+```
+117.14.147.49 - - [21/Feb/2021:00:40:26 +0800] "GET / HTTP/1.1" 200 906 "https://www.catscarlet.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0"
+```
+
+For now it doesn't support customized format. If you want to analyze your customized log, you need to change your log file to default format, or modify core.js by yourself.
+
 This project is still WIP.
 
 ## Screenshot

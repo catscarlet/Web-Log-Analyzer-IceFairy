@@ -33,7 +33,7 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 1">
-                        <el-alert type="warning" show-icon :closable="false"> Ready to Analyze: {{ fileinfo.name }} </el-alert>
+                        <el-alert type="warning" show-icon :closable="false"> Ready to Analyze: <strong>{{ fileinfo.name }}</strong> </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 2">
@@ -41,11 +41,11 @@
                     </div>
 
                     <div v-else-if="analyzed_status == 3">
-                        <el-alert title="Successfully Analyzed" type="success" show-icon :closable="false"></el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Successfully Analyzed: <strong>{{ fileinfo.name }}</strong></el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == 4">
-                        <el-alert title="Storaged Analyzed Data Loaded" type="success" show-icon :closable="false"></el-alert>
+                        <el-alert type="success" show-icon :closable="false"> Storaged Analyzed Data Loaded: <strong>{{ fileinfo.name }}</strong> </el-alert>
                     </div>
 
                     <div v-else-if="analyzed_status == -1">
@@ -176,7 +176,6 @@ export default {
     },
     beforeMount() {
         this.init();
-        //this.getUserInfoTest();
     },
     methods: {
         init() {
@@ -197,15 +196,12 @@ export default {
             let reader = new FileReader();
 
             reader.onload = e => {
-                //console.log(this);
-                //this.$emit('load', e.target.result);
                 this.reader_result = reader.result;
                 let filecontent = reader.result.split('\n');
                 let fileinfo = {
                     name: file.name,
                     size: file.size,
                 };
-                console.log(fileinfo);
                 this.fileinfo = fileinfo;
             };
 
@@ -223,15 +219,6 @@ export default {
             }
 
             this.analyzed_status = 2;
-
-            /*
-            let that = this;
-            this.$nextTick().then(function() {
-                that.startAnalyze();
-            });
-            */
-
-            //setTimeout(this.startAnalyze(), 1);
 
             this.startAnalyze();
         },
@@ -251,6 +238,9 @@ export default {
             }
 
             console.log('going to save analyzed_data');
+
+            analyzed_data.fileinfo = this.fileinfo;
+
             console.log(analyzed_data);
 
             if (this.saveToLocalStorage(analyzed_data) === true) {
@@ -272,15 +262,13 @@ export default {
                 this.analyzed_status = 0;
             } else {
                 this.analyzed_status = 4;
+                let analyzed_data = GlobalGetAnalyzedData();
+                this.fileinfo = analyzed_data.fileinfo;
             };
         },
         reset() {
             window.localStorage.clear();
             window.location.reload();
-        },
-        debug1() {
-            let analyzed_data = JSON.parse(window.localStorage.getItem('AnalyzedDataStorage'));
-            console.log(analyzed_data);
         },
         cleanAnalyzedData() {
             if (this.analyzed_status >= 3) {
