@@ -55,6 +55,7 @@ yarn.lock, so:
 - Change `Number per Page` will cause page refreshing. vue-router don't support safe reload or instant reload.
 - If already in route `/ChartDataTraffic` and try to analyze a new file, the page would refresh. Same reason as above.
 - Vue and Element UI will cause any kinds of unknown bugs. The code is working today, but tomorrow, it may be unavaliable to build with no reason. The Element UI will be much maintained. I'm going to choose another UI Library.
+- Not support IPv6 yet.
 
 ## Why named IceFairy
 

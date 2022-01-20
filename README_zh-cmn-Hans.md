@@ -55,6 +55,7 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 - 修改 `Number per Page` 会导致整页刷新，因为 vue-router 没有提供也不能实现当前路由重建重载。
 - 如果在 `/ChartDataTraffic` 页面下尝试分析新的日志文件，页面将会刷新。与上一条相同的原因。
 - Vue 以及 Element UI 仍然在使用旧版，更新可能会导致今天还能用，过一夜之后再编译就满页疮痍。基于 Element UI 的版本将不再维护，未来将考虑使用其他样式库。
+- 暂不支持IPv6。
 
 ## Why named IceFairy
 
