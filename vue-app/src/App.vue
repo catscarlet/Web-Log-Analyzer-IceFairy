@@ -306,7 +306,7 @@ export default {
 <style>
 .app1 {
     background-color: #FAFFFF;
-    font-family: Consolas, Roboto, Arial, sans-serif;
+    font-family: 'Dejavu Sans Mono', Menlo, Consolas, monospace, system-ui;
 }
 
 .downside {
