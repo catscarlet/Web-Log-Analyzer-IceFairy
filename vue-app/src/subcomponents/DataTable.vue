@@ -37,6 +37,7 @@
                 <span v-html="scope.row.id"></span>
             </template>
         </el-table-column>
+
         <el-table-column :label="unit_name">
             <template slot-scope="scope">
                 {{ scope.row.value }}
@@ -123,14 +124,14 @@ export default {
 
             if (this.unit_name == 'Bytes') {
                 let ranged = this.items.slice(begin, end);
-           let list = [];
-           for (let item of ranged) {
-               list.push({
-                   id: item.id,
-                   value: toThousands(item.value),
-               });
-           }
-           this.list = list;
+                let list = [];
+                for (let item of ranged) {
+                    list.push({
+                        id: item.id,
+                        value: toThousands(item.value),
+                    });
+                }
+                this.list = list;
             } else {
                 this.list = this.items.slice(begin, end);
             }
