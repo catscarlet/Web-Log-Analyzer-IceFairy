@@ -5,12 +5,12 @@
     "element-ui": "^2.14.1",
     "vue": "^2.6.12",
     "vue-chartjs": "^3.5.1",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.5.3"
   },
   "description": "A Client-Only web log analyzing tool.",
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
     "vue-template-compiler": "^2.6.12"
   },
   "homepage": "https://github.com/catscarlet/Web-Log-Analyzer-IceFairy",
