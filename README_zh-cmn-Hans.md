@@ -16,8 +16,6 @@
 
 目前不支持在界面定制默认日志格式。如果您需要使用自定义格式日志，请转换成默认格式，或修改 core.js 中的正则。
 
-目前项目仍在开发中。
-
 # 截图
 
 ![Web-Log-Analyzer-IceFairy snap-chart](snap-chart.png "Web-Log-Analyzer-IceFairy snap-chart")
@@ -60,10 +58,6 @@ If you need a log-file as test simple, here is a log-file from my bike404-site:
 ## Why named IceFairy
 
 配色
-
-## Contribute
-
-Pull requests are welcome. Please sent pull request to dev branch.
 
 ## License
 

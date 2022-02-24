@@ -16,8 +16,6 @@ like：
 
 For now it doesn't support customized format. If you want to analyze your customized log, you need to change your log file to default format, or modify core.js by yourself.
 
-This project is still WIP.
-
 ## Screenshot
 
 ![Web-Log-Analyzer-IceFairy snap-chart](snap-chart.png "Web-Log-Analyzer-IceFairy snap-chart")
@@ -60,10 +58,6 @@ yarn.lock, so:
 ## Why named IceFairy
 
 I don't want to name it as just 'Web Log Analyzer', and the color scheme is ice fairy so, this is it.
-
-## Contribute
-
-Pull requests are welcome. Please sent pull request to dev branch.
 
 ## License
 
